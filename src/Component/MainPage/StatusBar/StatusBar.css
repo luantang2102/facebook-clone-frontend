@@ -1,0 +1,62 @@
+.statusBar_container {
+  display: flex;
+  width: 600px;
+  overflow-x: scroll ;
+}
+.statusBar_container::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+.statusBar_status {
+  height: 200px;
+  width: 120px;
+  margin: 20px 5px;
+  border-radius: 10px;
+  transition: filter 0.3s ease-in-out;
+  filter: brightness(100%);
+}
+
+.statusBar_status:hover {
+  filter: brightness(95%);
+}
+
+.upload_icon {
+  margin-top: 70px;
+  cursor: pointer;
+}
+
+.statusBar_status > input {
+  display: none;
+}
+
+.status_upload_dialogBox {
+
+}
+
+.status_upload_header {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.status_upload_preview {
+  padding: 0px 40px;
+}
+
+.status_upload_button {
+  margin: 20px 40px;
+  background-color: #1b77f2;
+  color: white;
+  font-weight: 400;
+  border: 0px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.status_image {
+  width: 120px;
+  height: 200px;
+  border-radius: 5px;
+}

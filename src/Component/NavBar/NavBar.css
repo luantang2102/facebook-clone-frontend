@@ -1,0 +1,50 @@
+.navBar_main {
+  border-bottom: 1px solid #D8D8DE;
+}
+
+.navBar_logo {
+  margin: 8px 10px 8px 16px;
+}
+
+.navBar_leftBar {
+  display: flex;
+}
+
+.navBar_search {
+  height: 37px;
+  width: 190px;
+  border-radius: 25px;
+  border: 0px;
+  background-color: #EFF2F5;
+  font-size: 16px;
+  padding-left: 30px;
+  margin-top: 8px;
+}
+
+.navBar_middleBar {
+  display: flex;
+  margin-top: 10px;
+  margin-left: 60px;
+}
+
+.navBar_tabs {
+  width: 120px;
+}
+
+.navBar_tabs.active {
+  width: 120px;
+  border-bottom: 3px solid #1b88f2;
+}
+
+.navBar_rightTab {
+  display: flex;
+  margin-left: 40px;
+}
+.navBar_rightImg {
+  margin-top: 8px;
+  margin-right: 8px;
+}
+.navBar_profileName {
+  margin-top: 18px;
+  font-weight: 600;
+}

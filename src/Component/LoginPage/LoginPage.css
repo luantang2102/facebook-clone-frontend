@@ -1,0 +1,126 @@
+.container {
+  background-color: #F0F2F5;
+}
+
+.loginPage_main {
+ display: flex; 
+}
+
+.loginPage_fbLogo {
+  margin-top: 50px;
+  height: 70px;
+  padding-right: 250px;
+}
+
+.loginPage_leftComponent{
+  margin-top: 70px;
+}
+
+.loginPage_text{
+  font-weight: 400;
+  font-size: 25px;
+  margin-left: 35px;
+  text-align: left;
+}
+
+.loginPage_rightComponent {
+  height: 400px;
+  width: 350px;
+  margin-left: 40px;
+  margin-top: 130px;
+}
+
+.loginPage_Box{
+  margin: 10px;
+}
+
+.loginPage_rightComp_Form {
+  height: 350px;
+  width: 400px;
+  border-radius: 15px;
+}
+
+.loginPage_textBoxFirst {
+  width: 350px;
+  height: 50px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  background-color: #FAFAFA;
+  border: 1px solid #DBDBDB;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 17px;
+}
+
+.loginPage_textBox {
+  width: 350px;
+  height: 50px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #FAFAFA;
+  border: 1px solid #DBDBDB;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 17px;
+}
+
+.loginPage_loginBtn {
+  width: 360px;
+  height: 48px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  color: #FFFFFF;
+  font-size: 20px;
+  background-color: #1877F2;
+  border: 1px solid #DBDBDB;
+  border-radius: 5px;
+}
+
+.loginPage_loginBtn:active  {
+  background-color: #257ef3;
+}
+
+.loginPage_loginBtn:hover  {
+  background-color: #3589f7;
+}
+
+.loginPage_forgotPassword {
+  color: #188AF6;
+  font-size: 15px;
+  font-weight: 450;
+  padding-bottom: 25px;
+  border-bottom:1px solid #DADDE1;
+}
+
+.loginPage_forgotPassword:focus {
+  border-bottom: #188AF6;
+}
+
+.loginPage_createAccountBtn {
+  width: 200px;
+  height: 48px;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: #42B72A;
+  border: 1px solid #DBDBDB;
+  border-radius: 5px;
+}
+
+.loginPage_createAccountBtn:hover {
+  background-color: #36A420;
+} 
+
+.loginPage_createAccountBtn:active {
+  background-color: #2B9217;
+}
+
+.loginPage_alreadyHaveAccount {
+  color: #188AF6;
+  font-size: 15px;
+  font-weight: 450;
+  padding-bottom: 25px;
+  border-bottom:1px solid #DADDE1;
+}

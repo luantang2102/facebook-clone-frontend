@@ -1,0 +1,82 @@
+.post_container {
+  width: 600px;
+  margin-top: 20px;
+  border-radius: 20px;
+
+}
+
+.post_container {
+
+}
+
+.post_header {
+  display: flex;
+  height: 60px;
+}
+
+.post_header_img {
+  margin: 15px;
+}
+
+.post_header_text {
+  font-weight: 700;
+  margin-top : 20px;
+  font-size: 14px;
+}
+
+.post_description {
+  display: flex;
+  margin: 15px;
+}
+
+.post_image {
+  margin: 10px 0px;
+}
+
+.post_likeCountContainer {
+  height: 35px;
+  display: flex;
+  padding: 0px 10px;
+  border-bottom: 1px solid #dee1e6;
+}
+
+.post_like {
+
+}
+
+.post_like_img {
+  height: 20px;
+}
+
+.post_likeCount {
+  margin-left: 5px;
+
+}
+
+.post_likeShare {
+  display: flex;
+  height: 35px;
+  margin-left: 60px;
+  margin-top: 5px;
+}
+
+.post_tabs {
+  display: flex;
+  width: 200px;
+}
+
+.post_tabFirst {
+
+}
+
+.post_tabFirst_img {
+  width: 30px;
+}
+
+.post_tabText {
+  margin: 5px;
+}
+
+.post_upload {
+  border-top: 1px solid #dee1e6 ;
+}

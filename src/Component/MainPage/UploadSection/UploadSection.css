@@ -1,0 +1,86 @@
+.upload_container {
+  height: 120px;
+  width: 600px;
+}
+
+.upload_top {
+  display: flex;
+}
+
+.upload_img {
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.upload_box {
+  width: 480px;
+  height: 40px;
+  border: 0px;
+  background-color: #eff2f5;
+  border-radius: 30px;
+  font-size: 16px;
+  padding-left: 20px;
+  margin: 15px;
+}
+
+.upload_bottom {
+  border-top: 1px solid #E3E6Ea;
+  display: flex;
+  margin-left: 60px;
+  padding-top: 5px;
+}
+
+.upload_tabs {
+  width: 150px;
+  display: flex;
+}
+
+.upload_tabs > input {
+  display: none;
+}
+
+.upload_text {
+  margin: 5px;
+}
+
+.upload_dialogBox {
+  
+}
+
+.upload_textBox {
+  margin: 20px 40px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-size: 15px;
+}
+
+.upload_preview {
+  padding: 0px 40px;
+}
+
+.upload_button {
+  margin: 20px 40px;
+  background-color: #1b77f2;
+  color: white;
+  font-weight: 400;
+  border: 0px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.upload_button:active  {
+  background-color: #257ef3;
+}
+
+.upload_button:hover  {
+  background-color: #3589f7;
+}
+
+.upload_header {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 20px;
+}

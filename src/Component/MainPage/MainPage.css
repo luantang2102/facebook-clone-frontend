@@ -1,0 +1,31 @@
+.mainPage_container {
+  height: 650px;
+  background-color: #eff2f5;
+}
+
+.imageLayout_container {
+  display: flex;
+  margin: 15px
+}
+
+.imageLayout_img {
+  max-height: 35px;
+  max-width: 35px;
+}
+
+.imageLayout_text {
+  font-weight: 500;
+  margin: 10px;
+  font-size: 14px ;
+}
+
+.middle_container {
+  margin-left: 55px !important;
+  overflow-y: scroll;
+  height: 650px;
+  max-width: 600px !important;
+}
+.middle_container::-webkit-scrollbar { 
+  display: none;
+
+}
