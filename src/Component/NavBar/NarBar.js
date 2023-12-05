@@ -13,7 +13,9 @@ class NavBar extends Component {
   constructor(props) {
     super(props);
   }
-  state = {  }
+  state = { 
+  }
+
   render() { 
     return (
       <div> 
@@ -46,8 +48,8 @@ class NavBar extends Component {
           <Grid item xs = {3}>
             <div className="navBar_rightBar">
               <div className="navBar_rightTab">
-                <Avatar className="navBar_rightImg" src="https://scontent.fsgn5-12.fna.fbcdn.net/v/t39.30808-6/399927049_1760513474408864_4532997899325130267_n.jpg?stp=cp6_dst-jpg&_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=uAH63iJVwgcAX9LIu8a&_nc_ht=scontent.fsgn5-12.fna&oh=00_AfB8iTjdb7u_QvifQmPNtNFV0588sc7Dyjhpyo3nvo2L8A&oe=6559B3F8" />
-                <div className="navBar_profileName"> Luân Tăng</div>
+                <Avatar className="navBar_rightImg" src={this.props.userImage} />
+                <div className="navBar_profileName">{this.props.userName}</div>
               </div>
             </div>
           </Grid>

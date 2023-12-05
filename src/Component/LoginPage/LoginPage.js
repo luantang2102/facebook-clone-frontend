@@ -19,7 +19,7 @@ class LoginPage extends Component {
     //sign up
     signUp_name: null,
     signUp_email: null,
-    signUp_password: null
+    signUp_password: null,
   }
 
   changeLogIn = () => {
@@ -40,6 +40,7 @@ class LoginPage extends Component {
 
         let payload = {
           "userId" : user.uid,
+          "userName" : this.signUp_name,
           "email" : this.state.signUp_email,
           "password" : this.state.signUp_password,
           "userImage" : "dummyImage"
@@ -66,9 +67,7 @@ class LoginPage extends Component {
         const errorMessage = error.message;
         console.log(error);
       });
-  }
-
-  
+  }  
 
   signIn = (e) => {
     const thisContext = this;
@@ -91,7 +90,8 @@ class LoginPage extends Component {
         .then(response => response.json())
         .then(data => {
           console.log(data.accessToken);
-          localStorage.setItem("token", JSON.stringify(data.accessToken))
+          localStorage.setItem("token", JSON.stringify(data.accessToken));
+          thisContext.props.updateCurrentUser(data.currentUser);
           window.location.reload();
         })
         .catch(error => {

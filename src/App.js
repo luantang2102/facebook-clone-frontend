@@ -1,13 +1,11 @@
 import './App.css';
-import NavBar from './Component/NavBar/NarBar';
-import Layout from './Component/MainPage/Layout';
-import LoginPage from './Component/LoginPage/LoginPage';
+import Base from './Component/Base/Base';
 
 function App() {
   return (
     <div className="App">
       {
-        localStorage.getItem("token")==undefined ? <LoginPage /> : <span> <NavBar /> <Layout />  </span>
+        <Base />
       }
     </div>
   );

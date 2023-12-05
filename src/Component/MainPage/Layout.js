@@ -12,27 +12,28 @@ class Layout extends Component {
     super(props);
     this.childRef = createRef();
   }
-  state = {  }
+  state = { 
+
+  }
 
   postUpdate = () => {
     if (this.childRef.current) {
       this.childRef.current.getData();
     }
   }
-
   render() { 
     return (
       <div className="mainPage_container">
         <Grid container >
         <Grid item xs = {3}>
             <div>
-              <LeftSide />
+              <LeftSide userName={this.props.userName} userImage={this.props.userImage}/>
             </div>
           </Grid>
           <Grid item xs = {6} >
             <div className="middle_container">
               <StatusBar />
-              <UploadSection update={this.postUpdate} />
+              <UploadSection update={this.postUpdate} userName={this.props.userName} userImage={this.props.userImage}/>
               <PostContainer ref={this.childRef} />
             </div>
           </Grid>

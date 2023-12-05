@@ -10,10 +10,21 @@ class Post extends Component {
   constructor(props) {
     super(props);
   }
-  state = {  }
+  state = {
+    newComment : ""
+    
+  }
 
   isImageAvailable = (data) => {
     return data === "" ? false : true;
+  }
+
+  handleKeyPress = (event) => {
+    const thisContext = this;
+    if (event.key === 'Enter') {
+
+
+    }
   }
 
   render() { 
@@ -77,12 +88,15 @@ class Post extends Component {
           </div>
           {/* comment box */}
           <div className="post_upload">
+            <div>
+              {} 
+            </div>
             <div className="upload_top">
               <div>
                 <Avatar className="upload_img" src={this.props.object.imageURL} />
               </div>
               <div>
-                <input className="upload_box" placeholder="Write a public comment...." type="text" />
+                <input className="upload_box" placeholder="Write a public comment...." type="text" onChange={(event) => {this.state.newComment = event.currentTarget.value}} onKeyDown={this.handleKeyPress}/>
               </div>
             </div>
           </div>

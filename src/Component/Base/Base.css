@@ -1,0 +1,38 @@
+.expired_dialogBox {
+
+}
+
+.title {
+  width: 350px;
+  margin-top: 20px;
+  margin-left: 20px;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.description {
+  margin-top: 15px;
+  margin-left: 20px;
+  color: rgb(109, 107, 107);
+}
+
+.load {
+  margin-top: 15px;
+  background-color: transparent;
+  border: none;
+  color: #317BDD;
+}
+
+.load:hover {
+  color: #144d98;
+}
+
+.tab {
+  margin-right: 330px;
+}
+
+.load_container {
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}

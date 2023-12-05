@@ -23,6 +23,37 @@ class UploadSection extends Component {
     this.setState({open : false});
   }
 
+  handleKeyPress = (event) => {
+    const thisContext = this;
+    if (event.key === 'Enter') {
+      let token = localStorage.getItem("token").replace(/^"|"$/g, '');
+      let auth = "Bearer " + token;
+      console.log(auth);
+
+      let payload = {
+        "description" : thisContext.state.description,
+        "postImgURL" : null
+      }
+
+      fetch('http://localhost:8080/api/v1/user/post/create', {
+        method: 'POST',
+        headers: {
+          'Authorization': auth,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload),
+      })
+      .then(response => response.json())
+      .then(data => {
+        thisContext.props.update();
+      })
+      .catch(error => {
+        console.log(error);
+      });
+      // ...
+    }
+  };
+
   openDialog = (event) => {
     this.setState({open : true});
     this.setState({uploadImage: URL.createObjectURL(event.target.files[0])});
@@ -103,21 +134,22 @@ class UploadSection extends Component {
   }
 
   render() { 
+    const tempText = `What's on your mind, ${this.props.userName}?`;
     return (
       <div>
         <Dialog onClose={this.handleClose} open={this.state.open} className="upload_dialogBox">
           <div className="upload_header" >Create Post </div>
-          <input type="text" onChange={(event) => {this.state.description = event.currentTarget.value}} className="upload_textBox" placeholder="What's on your mind, Luân?" />
+          <input type="text" onChange={(event) => {this.state.description = event.currentTarget.value}} className="upload_textBox" placeholder={tempText} />
           <img src={this.state.uploadImage} className="upload_preview" />
           <input type="button" value="Post" onClick={this.uploadToFireStore}  className="upload_button" />
         </Dialog>
         <Paper className="upload_container">
           <div className="upload_top">
             <div>
-              <Avatar className="upload_img" src="https://scontent.fsgn5-12.fna.fbcdn.net/v/t39.30808-6/399927049_1760513474408864_4532997899325130267_n.jpg?stp=cp6_dst-jpg&_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=uAH63iJVwgcAX9LIu8a&_nc_ht=scontent.fsgn5-12.fna&oh=00_AfB8iTjdb7u_QvifQmPNtNFV0588sc7Dyjhpyo3nvo2L8A&oe=6559B3F8" />
+              <Avatar className="upload_img" src={this.props.userImage} />
             </div>
             <div>
-              <input className="upload_box" placeholder="What's on your mind, Luân?" type="text" />
+              <input className="upload_box" onChange={(event) => {this.state.description = event.currentTarget.value}} onKeyDown={this.handleKeyPress}  placeholder={tempText} type="text" />
             </div>
           </div>
           <div className="upload_bottom">

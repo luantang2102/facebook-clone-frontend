@@ -33,6 +33,16 @@
 .upload_tabs {
   width: 150px;
   display: flex;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out; /* Include opacity transition */
+}
+
+.upload_tabs:hover img {
+  opacity: 0.7;
+}
+
+.upload_tabs:hover .upload_text {
+  opacity: 0.7; /* Adjust the opacity as needed */
 }
 
 .upload_tabs > input {
