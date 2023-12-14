@@ -1,0 +1,181 @@
+.main_container {
+  display: grid;
+  place-items: center;
+}
+
+.top_container {
+  display: grid;
+  justify-content: center;
+  height: 580px;
+  width: 1500px;
+  border-bottom: 1px solid #DEE0E3;
+}
+
+.pp_container {
+  width: 1100px;
+}
+
+.pp_coverImage {
+  height: 400px;
+  width: 1100px;
+  border-radius:  0px 0px 5px 5px;
+}
+
+.pp_headerContainer {
+  display: grid;
+  justify-content: center;
+}
+
+.pp_headerContainer_top {
+  display: flex;
+  height: 120px;
+  border-bottom:1px solid #CCCED2;
+}
+
+.pp_userImage_container {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  background-color: white;
+  transform: translate(0px, -40%);
+}
+
+.pp_userName {
+  margin: 16px 0px 0px 15px;
+  font-size: 33px;
+  font-weight: 700;
+}
+
+.pp_userTotalFriends {
+  margin: 3px 0px 0px 25px;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgb(78, 72, 72);
+}
+
+.pp_userNickname {
+  margin: 18px 0px 0px 10px;
+  font-size: 31px;
+}
+
+.pp_buttonContainer {
+  display: flex;
+}
+
+.pp_firstButton {
+  margin: 30px 0px 0px 320px;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0866FF;
+  width: 130px;
+  height: 36px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pp_firstButton:hover {
+  background-color: #0861F2;
+}
+
+.pp_secButton {
+  margin: 30px 0px 0px 10px;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E4E6EB;
+  width: 130px;
+  height: 36px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pp_secButton:hover {
+  background-color: #D8DADF;
+}
+
+.pp_thirdButton {
+  margin: 30px 0px 0px 10px;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E4E6EB;
+  width: 50px;
+  height: 36px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pp_thirdButton:hover {
+  background-color: #D8DADF;
+}
+
+.pp_button_image {
+  margin: 4px;
+}
+
+.pp_firstButton_text {
+  margin: 2px;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.pp_secButton_text {
+  margin: 2px;
+  color: black;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.pp_headerContainer_bottom {
+  display: flex;
+}
+
+.pp_headerContainer_bottom_content {
+  display: flex;
+}
+
+.pp_headerContainer_bottom_content_tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3px 3px 3px 0px;
+  width: 75px;
+  height: 50px;
+  font-weight: 500;
+  color: #707276;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.pp_headerContainer_bottom_content_tabs.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3px 3px 3px 0px;
+  width: 75px;
+  height: 50px;
+  font-weight: 500;
+  color: #146DFF;
+  border-bottom: 2px solid #146DFF;
+  border-radius: 6px 6px 0px 0px ;
+}
+
+.pp_headerContainer_bottom_content_tabs:hover {
+  background-color: #F2F2F2;
+}
+
+
+#add_story {
+  display: none;
+}
+#edit_profile {
+  display: none;
+}
+#suggest_friends {
+  display: none;
+}

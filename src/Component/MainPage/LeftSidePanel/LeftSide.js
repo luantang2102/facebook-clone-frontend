@@ -18,10 +18,6 @@ class LeftSide extends Component {
   getData = () => {
     let jsData = [
       {
-        "image" : this.props.userImage,
-        "text" : this.props.userName
-      },
-      {
         "image" : groups,
         "text" : "Friends"
       },
@@ -56,6 +52,7 @@ class LeftSide extends Component {
   render() { 
     return ( 
       <div>
+        <ImageLayout image={this.props.userImage} text={this.props.userName} openPersonalPage={this.props.openPersonalPage}/>
         {
           this.state.data.map((item) => (
             <ImageLayout text={item.text} image={item.image}/>

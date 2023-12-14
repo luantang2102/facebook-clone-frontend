@@ -4,6 +4,7 @@
 
 .navBar_logo {
   margin: 8px 10px 8px 16px;
+  cursor: pointer;
 }
 
 .navBar_leftBar {
@@ -23,16 +24,31 @@
 
 .navBar_middleBar {
   display: flex;
-  margin-top: 10px;
+  margin-top: 4px;
   margin-left: 60px;
+  margin-bottom: 4px;
 }
 
 .navBar_tabs {
   width: 120px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.navBar_tabs:hover{
+  background-color:#dee1e6;
+}
+
+.navBar_tabs_img {
+  height: 35px;
+  width: 35px;
+  margin-left: 6px;
+  margin-top: 10px;
 }
 
 .navBar_tabs.active {
   width: 120px;
+  border-radius: 5px 5px 0px 0px ;
   border-bottom: 3px solid #1b88f2;
 }
 

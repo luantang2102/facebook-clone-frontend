@@ -13,7 +13,7 @@ class Status extends Component {
       <div>
         {
           this.props.uploader==="true" ? 
-          <Paper className="statusBar_status" >
+          <Paper className="statusBar_status">
             <label for="file-upload-status">
               <img src={uploadIcon} className="upload_icon" />
             </label>

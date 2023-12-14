@@ -5,17 +5,24 @@
 
 .imageLayout_container {
   display: flex;
-  margin: 15px
+  margin: 15px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.imageLayout_container:hover {
+  background-color:#dee1e6;
 }
 
 .imageLayout_img {
   max-height: 35px;
   max-width: 35px;
+  margin: 5px;
 }
 
 .imageLayout_text {
   font-weight: 500;
-  margin: 10px;
+  margin: 13px 10px 10px 10px;
   font-size: 14px ;
 }
 

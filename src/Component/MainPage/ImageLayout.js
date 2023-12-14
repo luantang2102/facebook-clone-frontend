@@ -5,10 +5,10 @@ class ImageLayout extends Component {
   constructor(props) {
     super(props);
   }
-  state = {  }
+  state = {}
   render() { 
     return ( 
-      <div className="imageLayout_container">
+      <div className="imageLayout_container" onClick={this.props.openPersonalPage}>
         <div className="imageLayout_imgLay">
           <Avatar className="imageLayout_img" src= {this.props.image} />
         </div>

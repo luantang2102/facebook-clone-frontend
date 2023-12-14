@@ -10,6 +10,7 @@
 .upload_img {
   margin-left: 15px;
   margin-top: 15px;
+  cursor: pointer;
 }
 
 .upload_box {

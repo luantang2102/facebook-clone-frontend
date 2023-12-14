@@ -132,7 +132,7 @@ class StatusBar extends Component {
           <img src={this.state.uploadImage} className="status_upload_preview" />
           <input type="button" value="Share to story" onClick={this.uploadToFireStore}  className="status_upload_button" />
         </Dialog>
-        <Status uploader="true" openDialog={this.openDialog}/>
+        <Status uploader="true" openDialog={this.openDialog} userImage={this.props.userImage}/>
         {
           this.state.content.map((item) => (
             <Status object={item}/>

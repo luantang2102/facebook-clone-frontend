@@ -34,7 +34,6 @@ class PostContainer extends Component {
       return response.json();
     })
     .then(data => {
-      console.log(data.content);
       thisContext.setState({content : data.content})
     })
     .catch(error => {
@@ -46,13 +45,13 @@ class PostContainer extends Component {
   componentDidMount() {
     this.getData();
   }
-
+  
   render() { 
     return (
       <div>
         {
           this.state.content.map((item) => (
-            <Post object={item}/>
+            <Post key={item.postId} object={item} update={this.getData} userName={this.props.userName} userImage={this.props.userImage}/>
           ))
         }
       </div>

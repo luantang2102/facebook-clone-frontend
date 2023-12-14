@@ -22,26 +22,26 @@ class NavBar extends Component {
         <Grid container className="navBar_main">
           <Grid item xs = {3}>
             <div className="navBar_leftBar">
-              <img className="navBar_logo" src={fbLogo} width="35px" />
+              <img className="navBar_logo" src={fbLogo} width="35px" onClick={this.props.closePersonalPage}/>
               <input className="navBar_search" type="text" placeholder='Search Facebook'/>
             </div>
           </Grid>
           <Grid item xs = {6}>
             <div className="navBar_middleBar">
               <div className="navBar_tabs active">
-                <img src={home} height="37px" width="37px"/>
+                <img src={home} className="navBar_tabs_img" onClick={this.props.closePersonalPage}/>
+              </div> 
+              <div className="navBar_tabs">
+                <img src={watch} className="navBar_tabs_img"/>
               </div>
               <div className="navBar_tabs">
-                <img src={watch} height="37px" width="37px"/>
+                <img src={market} className="navBar_tabs_img"/>
               </div>
               <div className="navBar_tabs">
-                <img src={market} height="37px" width="37px"/>
+                <img src={group} className="navBar_tabs_img"/>
               </div>
               <div className="navBar_tabs">
-                <img src={group} height="37px" width="37px"/>
-              </div>
-              <div className="navBar_tabs">
-                <img src={page} height="37px" width="37px"/>
+                <img src={page} className="navBar_tabs_img"/>
               </div>
             </div>
           </Grid>

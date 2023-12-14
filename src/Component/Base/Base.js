@@ -4,16 +4,18 @@ import Layout from '../MainPage/Layout';
 import LoginPage from '../LoginPage/LoginPage';
 import { Dialog } from '@mui/material';
 import "./Base.css";
+import PersonalPage from '../PersonalPage/PersonalPage';
 
 class Base extends Component {
   constructor(props) {
     super(props);
   }
   state = {
-    open : false,
+    openDialog : false,
     userName : null,
     userImage : null,
-    loading: true
+    loading: true,
+    openPersonalPage : false,
   }
 
   updateCurrentUser = (data) => {
@@ -22,6 +24,14 @@ class Base extends Component {
         userName : data.userName,
         userImage : data.userImage
       });
+  }
+
+  openPersonalPage = () => {
+    this.setState({openPersonalPage : true});
+  }
+
+  closePersonalPage = () => {
+    this.setState({openPersonalPage : false});
   }
 
   componentDidMount() {
@@ -58,7 +68,7 @@ class Base extends Component {
       .catch(error => {
         this.setState(
           {
-            open : true,
+            openDialog : true,
             loading : false
           })
         console.log(error);
@@ -81,7 +91,7 @@ class Base extends Component {
     }
     return (
       <div>
-        <Dialog open={this.state.open} className="expired_dialogBox">
+        <Dialog open={this.state.openDialog} className="expired_dialogBox">
           <div className="title"> Session Expired</div>
           <div className="description"> Please log in again</div>
           <div className="load_container">
@@ -91,7 +101,18 @@ class Base extends Component {
         </Dialog>
         <div>
           {
-            localStorage.getItem("token")==undefined ? <LoginPage updateCurrentUser={this.updateCurrentUser}/> : <span> <NavBar userName={this.state.userName} userImage={this.state.userImage} /> <Layout userName={this.state.userName} userImage={this.state.userImage} /> </span>
+            localStorage.getItem("token")==undefined ?
+              <LoginPage updateCurrentUser={this.updateCurrentUser}/>
+              :
+              <span> 
+                <NavBar userName={this.state.userName} userImage={this.state.userImage} closePersonalPage={this.closePersonalPage}/> 
+                {
+                  this.state.openPersonalPage ? 
+                    <PersonalPage />
+                    :
+                    <Layout openPersonalPage={this.openPersonalPage} userId={this.state.userId} userName={this.state.userName} userImage={this.state.userImage} /> 
+                }
+              </span>
           }
         </div>
       </div>

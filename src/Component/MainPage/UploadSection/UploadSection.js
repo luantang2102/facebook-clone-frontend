@@ -46,6 +46,7 @@ class UploadSection extends Component {
       .then(response => response.json())
       .then(data => {
         thisContext.props.update();
+        thisContext.setState({description: '' });
       })
       .catch(error => {
         console.log(error);
@@ -117,6 +118,7 @@ class UploadSection extends Component {
           .then(data => {
             thisContext.setState({open : false});
             thisContext.props.update();
+            window.location.reload();
             
           })
           .catch(error => {
@@ -146,10 +148,10 @@ class UploadSection extends Component {
         <Paper className="upload_container">
           <div className="upload_top">
             <div>
-              <Avatar className="upload_img" src={this.props.userImage} />
+              <Avatar className="upload_img" src={this.props.userImage} onClick={this.props.openPersonalPage}/>
             </div>
             <div>
-              <input className="upload_box" onChange={(event) => {this.state.description = event.currentTarget.value}} onKeyDown={this.handleKeyPress}  placeholder={tempText} type="text" />
+              <input className="upload_box" onChange={(event) => {this.setState({description : event.currentTarget.value})}} onKeyDown={this.handleKeyPress}  placeholder={tempText} value={this.state.description || ''} type="text" />
             </div>
           </div>
           <div className="upload_bottom">
