@@ -20,7 +20,7 @@ class Post extends Component {
 
   isImageAvailable = (data) => {
     return data === "" ? false : true;
-  } 
+  }
 
   getComments = () => {
     const thisContext = this;
@@ -158,15 +158,19 @@ class Post extends Component {
     }
   }
 
+  handleOpenPersonalPage = () => {
+    this.props.openPersonalPage(this.props.object.userId);
+  }
+
   render() { 
     return (
       <div>
         <Paper className="post_container">
           {/* header */}
           <div className="post_header">
-            <div className="post_header_img">
-              <Avatar src={this.props.object.imageURL}/>
-            </div>
+            <id className="post_header_img">
+              <Avatar src={this.props.object.imageURL} onClick={this.handleOpenPersonalPage}/>
+            </id>
             <div className="post_header_text">
               {this.props.object.userName}
             </div>

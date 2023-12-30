@@ -42,8 +42,45 @@ class PostContainer extends Component {
     // ...
   }
 
+  getIndividualData = () => {
+    //Call the REST
+   const thisContext = this;
+   let token = localStorage.getItem("token").replace(/^"|"$/g, '');
+   let auth = "Bearer " + token;
+   fetch(`http://localhost:8080/api/v1/user/${this.props.userId}/posts`, {
+     method: 'GET',
+     headers: {
+       'Authorization': auth,
+       'Content-Type': 'application/json'
+     }
+   })
+   .then(response => {
+     if (!response.ok) {
+       if (response.status === 401) {
+         // Handle unauthorized access here
+         console.log("Unauthorized access!");
+       } else {
+         throw new Error('Network response was not ok.');
+       }
+     }
+     return response.json();
+   })
+   .then(data => {
+     thisContext.setState({content : data.content})
+   })
+   .catch(error => {
+     console.log(error);
+   });
+   // ...
+ }
+
   componentDidMount() {
-    this.getData();
+    if(this.props.userId === undefined || this.props.userId === null) {
+      this.getData();
+    }
+    else {
+      this.getIndividualData();
+    }
   }
   
   render() { 
@@ -51,7 +88,7 @@ class PostContainer extends Component {
       <div>
         {
           this.state.content.map((item) => (
-            <Post key={item.postId} object={item} update={this.getData} userName={this.props.userName} userImage={this.props.userImage}/>
+            <Post openPersonalPage={this.props.openPersonalPage} key={item.postId} object={item} update={this.getData} userId={this.props.userId} userName={this.props.userName} userImage={this.props.userImage}/>
           ))
         }
       </div>

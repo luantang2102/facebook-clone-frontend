@@ -40,7 +40,7 @@ class LoginPage extends Component {
 
         let payload = {
           "userId" : user.uid,
-          "userName" : this.signUp_name,
+          "userName" : this.state.signUp_name,
           "email" : this.state.signUp_email,
           "password" : this.state.signUp_password,
           "userImage" : "dummyImage"

@@ -28,8 +28,8 @@ class NavBar extends Component {
           </Grid>
           <Grid item xs = {6}>
             <div className="navBar_middleBar">
-              <div className="navBar_tabs active">
-                <img src={home} className="navBar_tabs_img" onClick={this.props.closePersonalPage}/>
+              <div className="navBar_tabs active" onClick={this.props.closePersonalPage}>
+                <img src={home} className="navBar_tabs_img" />
               </div> 
               <div className="navBar_tabs">
                 <img src={watch} className="navBar_tabs_img"/>

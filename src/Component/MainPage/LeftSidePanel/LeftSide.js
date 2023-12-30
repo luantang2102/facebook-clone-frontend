@@ -48,7 +48,7 @@ class LeftSide extends Component {
   componentDidMount() {
     this.getData();
   }
-
+  
   render() { 
     return ( 
       <div>

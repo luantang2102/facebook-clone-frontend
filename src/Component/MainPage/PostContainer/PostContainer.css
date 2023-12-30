@@ -16,12 +16,18 @@
 
 .post_header_img {
   margin: 15px;
+  cursor: pointer;
 }
 
 .post_header_text {
   font-weight: 700;
   margin-top : 20px;
   font-size: 14px;
+  cursor: pointer;
+}
+
+.post_header_text:hover {
+  text-decoration: underline;
 }
 
 .post_description {

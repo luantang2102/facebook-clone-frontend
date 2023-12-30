@@ -81,8 +81,6 @@ class StatusBar extends Component {
           .then(data => {
             thisContext.setState({open : false});
             thisContext.getData();
-            console.log(data);
-            
           })
           .catch(error => {
             console.log(error);
@@ -111,7 +109,6 @@ class StatusBar extends Component {
     })
     .then(response => response.json())
     .then(data => {
-      console.log(data.content);
       thisContext.setState({content : data.content})
     })
     .catch(error => {

@@ -28,7 +28,6 @@ class UploadSection extends Component {
     if (event.key === 'Enter') {
       let token = localStorage.getItem("token").replace(/^"|"$/g, '');
       let auth = "Bearer " + token;
-      console.log(auth);
 
       let payload = {
         "description" : thisContext.state.description,
@@ -134,7 +133,7 @@ class UploadSection extends Component {
       }  
     );
   }
-
+  
   render() { 
     const tempText = `What's on your mind, ${this.props.userName}?`;
     return (
