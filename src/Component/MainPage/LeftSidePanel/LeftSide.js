@@ -48,14 +48,14 @@ class LeftSide extends Component {
   componentDidMount() {
     this.getData();
   }
-
+  
   render() { 
     return ( 
       <div>
-        <ImageLayout image={this.props.userImage} text={this.props.userName} openPersonalPage={this.props.openPersonalPage}/>
+        <ImageLayout image={this.props.userImage} text={this.props.userName} openPersonalPage={this.props.openPersonalPage} userId={this.props.userId}/>
         {
           this.state.data.map((item) => (
-            <ImageLayout text={item.text} image={item.image}/>
+              <ImageLayout text={item.text} image={item.image}/>
           ))
         }
       </div>

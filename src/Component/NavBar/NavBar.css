@@ -54,13 +54,110 @@
 
 .navBar_rightTab {
   display: flex;
+  justify-content: end;
   margin-left: 40px;
-}
-.navBar_rightImg {
   margin-top: 8px;
   margin-right: 8px;
 }
+
+.navBar_rightTab_itemContainer {
+  border-radius: 50%;
+  background-color: #E4E6EB;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 41px;
+  height: 41px;
+  margin-right: 8px;
+  cursor: pointer;
+  transition: opacity 0.1s ease-in-out;
+
+}
+
+.navBar_rightTab_itemContainer:hover {
+  opacity: 0.7; 
+}
+
+.navBar_rightTab_itemImg {
+  width: 21px;
+  height: 21px;
+}
+
+.navBar_messenger_notify {
+  width: 18px;
+  height: 18px;
+  background-color: red;
+  display: grid;
+  justify-content: center;
+  font-size: 12px;
+  border-radius: 50%;
+  color: white;
+  transform: translate(-18px, -2px);
+}
+
 .navBar_profileName {
-  margin-top: 18px;
+  margin-top: 11px;
   font-weight: 600;
+}
+
+.navBar_messenger_container {
+  margin: 0px 15px 5px 15px;
+  display: grid;
+  justify-content: center;
+}
+
+.navBar_messenger_header_text {
+  font-size: 23px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.navBar_messenger_search {
+  height: 30px;
+  width: 300px;
+  border-radius: 25px;
+  border: 0px;
+  background-color: #EFF2F5;
+  font-size: 16px;
+  padding-left: 30px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+
+.navBar_messenger_menu {
+  margin-top: 5px;
+}
+
+.navBar_messenger_tab {
+  margin: 8px;
+}
+
+.navBar_messenger_tab.highlighted {
+  margin: 8px;
+}
+
+.navBar_messenger_tab_textContainer {
+  display: grid;
+  justify-content: start;
+  margin-left: 8px;
+}
+
+.navBar_messenger_tab_name {
+  font-size: 16px;
+}
+
+.navBar_messenger_tab_name.highlighted {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.navBar_messenger_tab_message {
+  font-size: 13px;
+  color: #656796;
+}
+
+.navBar_messenger_tab_message.highlighted {
+  font-size: 13px;
+  color: #656796;
+  font-weight: bold;
 }

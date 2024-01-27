@@ -20,13 +20,13 @@ class Post extends Component {
 
   isImageAvailable = (data) => {
     return data === "" ? false : true;
-  } 
+  }
 
   getComments = () => {
     const thisContext = this;
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
-    fetch(`http://localhost:8080/api/v1/user/comments/${this.props.object.postId}`, {
+    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/comments/${this.props.object.postId}`, {
       method: 'GET',
       headers: {
         'Authorization': auth,
@@ -58,7 +58,7 @@ class Post extends Component {
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
 
-    fetch(`http://localhost:8080/api/v1/user/post/${thisContext.props.object.postId}/likes/isLiked`, {
+    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/post/${thisContext.props.object.postId}/likes/isLiked`, {
           method: 'GET',
           headers: {
             'Authorization': auth,
@@ -92,7 +92,7 @@ class Post extends Component {
           "comment" : thisContext.state.newComment
         }
 
-        fetch('http://localhost:8080/api/v1/user/comment/create', {
+        fetch('https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/comment/create', {
           method: 'POST',
           headers: {
             'Authorization': auth,
@@ -120,7 +120,7 @@ class Post extends Component {
       let token = localStorage.getItem("token").replace(/^"|"$/g, '');
       let auth = "Bearer " + token;
 
-      fetch(`http://localhost:8080/api/v1/user/post/${this.props.object.postId}/update/likes/remove`, {
+      fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/post/${this.props.object.postId}/update/likes/remove`, {
         method: 'PUT',
         headers: {
           'Authorization': auth,
@@ -140,7 +140,7 @@ class Post extends Component {
       let token = localStorage.getItem("token").replace(/^"|"$/g, '');
       let auth = "Bearer " + token;
 
-      fetch(`http://localhost:8080/api/v1/user/post/${this.props.object.postId}/update/likes/add`, {
+      fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/post/${this.props.object.postId}/update/likes/add`, {
         method: 'PUT',
         headers: {
           'Authorization': auth,
@@ -158,15 +158,19 @@ class Post extends Component {
     }
   }
 
+  handleOpenPersonalPage = () => {
+    this.props.openPersonalPage(this.props.object.userId);
+  }
+
   render() { 
     return (
       <div>
         <Paper className="post_container">
           {/* header */}
           <div className="post_header">
-            <div className="post_header_img">
-              <Avatar src={this.props.object.imageURL}/>
-            </div>
+            <id className="post_header_img">
+              <Avatar src={this.props.object.imageURL} onClick={this.handleOpenPersonalPage}/>
+            </id>
             <div className="post_header_text">
               {this.props.object.userName}
             </div>

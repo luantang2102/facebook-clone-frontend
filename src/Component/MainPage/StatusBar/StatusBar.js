@@ -69,7 +69,7 @@ class StatusBar extends Component {
           }
           
 
-          fetch('http://localhost:8080/api/v1/user/status/create', {
+          fetch('https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/status/create', {
             method: 'POST',
             headers: {
               'Authorization': auth,
@@ -81,8 +81,6 @@ class StatusBar extends Component {
           .then(data => {
             thisContext.setState({open : false});
             thisContext.getData();
-            console.log(data);
-            
           })
           .catch(error => {
             console.log(error);
@@ -102,7 +100,7 @@ class StatusBar extends Component {
     const thisContext = this;
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
-    fetch('http://localhost:8080/api/v1/user/statuses', {
+    fetch('https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/statuses', {
       method: 'GET',
       headers: {
         'Authorization': auth,
@@ -111,7 +109,6 @@ class StatusBar extends Component {
     })
     .then(response => response.json())
     .then(data => {
-      console.log(data.content);
       thisContext.setState({content : data.content})
     })
     .catch(error => {

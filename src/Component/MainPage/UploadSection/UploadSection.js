@@ -28,14 +28,13 @@ class UploadSection extends Component {
     if (event.key === 'Enter') {
       let token = localStorage.getItem("token").replace(/^"|"$/g, '');
       let auth = "Bearer " + token;
-      console.log(auth);
 
       let payload = {
         "description" : thisContext.state.description,
         "postImgURL" : null
       }
 
-      fetch('http://localhost:8080/api/v1/user/post/create', {
+      fetch('https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/post/create', {
         method: 'POST',
         headers: {
           'Authorization': auth,
@@ -106,7 +105,7 @@ class UploadSection extends Component {
           }
           
 
-          fetch('http://localhost:8080/api/v1/user/post/create', {
+          fetch('https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/post/create', {
             method: 'POST',
             headers: {
               'Authorization': auth,
@@ -134,7 +133,7 @@ class UploadSection extends Component {
       }  
     );
   }
-
+  
   render() { 
     const tempText = `What's on your mind, ${this.props.userName}?`;
     return (

@@ -11,32 +11,41 @@ class RightSide extends Component {
   }
 
   getData = () => {
-    let jsData = [
-
-      {
-        "image" : "https://scontent.fsgn5-12.fna.fbcdn.net/v/t39.30808-6/399927049_1760513474408864_4532997899325130267_n.jpg?stp=cp6_dst-jpg&_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=uAH63iJVwgcAX9LIu8a&_nc_ht=scontent.fsgn5-12.fna&oh=00_AfB8iTjdb7u_QvifQmPNtNFV0588sc7Dyjhpyo3nvo2L8A&oe=6559B3F8",
-        "text" : "Luân Tăng"
-      },
-      {
-        "image" : "https://scontent.fsgn5-12.fna.fbcdn.net/v/t39.30808-6/399927049_1760513474408864_4532997899325130267_n.jpg?stp=cp6_dst-jpg&_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=uAH63iJVwgcAX9LIu8a&_nc_ht=scontent.fsgn5-12.fna&oh=00_AfB8iTjdb7u_QvifQmPNtNFV0588sc7Dyjhpyo3nvo2L8A&oe=6559B3F8",
-        "text" : "Luân Tăng"
-      },
-      {
-        "image" : "https://scontent.fsgn5-12.fna.fbcdn.net/v/t39.30808-6/399927049_1760513474408864_4532997899325130267_n.jpg?stp=cp6_dst-jpg&_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=uAH63iJVwgcAX9LIu8a&_nc_ht=scontent.fsgn5-12.fna&oh=00_AfB8iTjdb7u_QvifQmPNtNFV0588sc7Dyjhpyo3nvo2L8A&oe=6559B3F8",
-        "text" : "Luân Tăng"
-      },
-      {
-        "image" : "https://scontent.fsgn5-12.fna.fbcdn.net/v/t39.30808-6/399927049_1760513474408864_4532997899325130267_n.jpg?stp=cp6_dst-jpg&_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=uAH63iJVwgcAX9LIu8a&_nc_ht=scontent.fsgn5-12.fna&oh=00_AfB8iTjdb7u_QvifQmPNtNFV0588sc7Dyjhpyo3nvo2L8A&oe=6559B3F8",
-        "text" : "Luân Tăng"
+    const thisContext = this;
+    let token = localStorage.getItem("token").replace(/^"|"$/g, '');
+    let auth = "Bearer " + token;
+    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/current/friends`, {
+      method: 'GET',
+      headers: {
+        'Authorization': auth,
+        'Content-Type': 'application/json'
       }
-    ]
-    this.setState({data: jsData});
+    })
+    .then(response => {
+      if (!response.ok) {
+        if (response.status === 401) {
+          // Handle unauthorized access here
+          console.log("Unauthorized access!");
+        } else {
+          throw new Error('Network response was not ok.');
+        }
+      }
+      return response.json();
+    })
+    .then(data => {
+      this.setState({
+        data: data
+      });
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
 
   componentDidMount() {
     this.getData();
   }
-
+  
   render() { 
     return (
       <div className="rightSide_container">
@@ -47,7 +56,7 @@ class RightSide extends Component {
           <div>
           {
           this.state.data.map((item) => (
-            <ImageLayout text={item.text} image={item.image}/>
+            <ImageLayout text={item.userName} image={item.userImage} openPersonalPage={this.props.openPersonalPage} userId={item.userId}/>
           ))
         }
           </div>
