@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { CircularProgress, Grid } from '@mui/material';
 import { Paper } from '@mui/material';
 import { auth } from "../../firebase";
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
@@ -20,90 +20,133 @@ class LoginPage extends Component {
     signUp_name: null,
     signUp_email: null,
     signUp_password: null,
+
+    loading : false,
+    isBlank : false,
   }
 
   changeLogIn = () => {
     if(this.state.isLogin) {
-      this.setState({isLogin : false});
+      this.setState(
+        {
+          isLogin : false,
+          isBlank : false,
+          loading : false
+        });
     }
     else {
-      this.setState({isLogin : true});
+      this.setState(
+        {
+          isLogin : true,
+          isBlank : false,
+          loading : false
+        });
     }
   }
 
   signUp = (e) => {
-    e.preventDefault();
-    createUserWithEmailAndPassword(auth, this.state.signUp_email, this.state.signUp_password)
-      .then((userCredential) => {
-        // Signed up 
-        const user = userCredential.user;
+    if(this.state.signUp_email && this.state.signUp_password && this.state.signUp_name) {
+      this.setState(
+        {
+          loading : true
+        },
+        () => {
+          const thisContext = this;
+          e.preventDefault();
+          createUserWithEmailAndPassword(auth, this.state.signUp_email, this.state.signUp_password)
+            .then((userCredential) => {
+              // Signed up 
+              const user = userCredential.user;
 
-        let payload = {
-          "userId" : user.uid,
-          "userName" : this.state.signUp_name,
-          "email" : this.state.signUp_email,
-          "password" : this.state.signUp_password,
-          "userImage" : "dummyImage"
-        }
-        
-        fetch('http://localhost:8080/api/v1/auth/register', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload),
+              let payload = {
+                "userId" : user.uid,
+                "userName" : this.state.signUp_name,
+                "email" : this.state.signUp_email,
+                "password" : this.state.signUp_password,
+                "userImage" : "dummyImage"
+              }
+              
+              fetch('https://facebook-clone-backend-production-f262.up.railway.app/api/v1/auth/register', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload),
+              })
+              .then(data => {
+                this.changeLogIn();
+                window.location.reload();
+              })
+              .catch(error => {
+                console.log(error);
+                console.log("Error from server-side");
+              });
+            })
+            .catch((error) => {
+              console.log("Error from firebase");
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              console.log(error);
+            });
         })
-        .then(response => response.json())
-        .then(data => {
-          this.changeLogIn();
-          window.location.reload();
-        })
-        .catch(error => {
-          // Handle error
-        });
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(error);
+    }
+    else {
+      this.setState({
+        isBlank : true
       });
+    }
   }  
 
   signIn = (e) => {
-    const thisContext = this;
-    e.preventDefault();
-    signInWithEmailAndPassword(auth, this.state.signIn_email, this.state.signIn_password)
-      .then((userCredential) => {
-        // Signed in
-        let payload = {
-          "email" : this.state.signIn_email,
-          "password" : this.state.signIn_password
-        }
-
-        fetch('http://localhost:8080/api/v1/auth/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload),
+    if(this.state.signIn_email && this.state.signIn_password) {
+      this.setState(
+        {
+          loading : true
+        },
+        () => {
+          const thisContext = this;
+          e.preventDefault();
+          signInWithEmailAndPassword(auth, this.state.signIn_email, this.state.signIn_password)
+            .then((userCredential) => {
+              // Signed in
+              let payload = {
+                "email" : this.state.signIn_email,
+                "password" : this.state.signIn_password
+              }
+  
+              fetch('https://facebook-clone-backend-production-f262.up.railway.app/api/v1/auth/login', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload),
+              })
+              .then(response => response.json())
+              .then(data => {
+                console.log(data.accessToken);
+                localStorage.setItem("token", JSON.stringify(data.accessToken));
+                thisContext.props.updateCurrentUser(data.currentUser);
+                window.location.reload();
+              })
+              .catch(error => {
+                this.setState({
+                  loading: false
+                })
+              });
+              // ...
+            })
+            .catch((error) => {
+              this.setState({
+                loading: false
+              })
+            });
         })
-        .then(response => response.json())
-        .then(data => {
-          console.log(data.accessToken);
-          localStorage.setItem("token", JSON.stringify(data.accessToken));
-          thisContext.props.updateCurrentUser(data.currentUser);
-          window.location.reload();
-        })
-        .catch(error => {
-          // Handle error
-        });
-        // ...
-      })
-      .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(error);
+    }
+    else {
+      this.setState({
+        isBlank : true
       });
+    }
   }
 
   render() { 
@@ -127,34 +170,55 @@ class LoginPage extends Component {
                     <div className="loginPage_signIn">
                       {
                         this.state.isLogin ? 
-                        <div>
-                          <input onChange={(event) => {this.state.signIn_email = event.currentTarget.value}} className="loginPage_textBoxFirst" type="text" placeholder="Email address"></input>
-                          <input onChange={(event) =>{this.state.signIn_password = event.currentTarget.value}} className="loginPage_textBox" type="password" placeholder="Password"></input>
-                          <button onClick={this.signIn} className="loginPage_loginBtn" > Log In</button>
+                        <div className="loginPage_signIn">
+                          <input id="email" onChange={(event) => {this.state.signIn_email = event.currentTarget.value}} className={`loginPage_textBox ${this.state.isBlank ? 'blank' : ''}`} type="text" placeholder="Email address"></input>
+                          <input id="password" onChange={(event) =>{this.state.signIn_password = event.currentTarget.value}} className={`loginPage_textBox ${this.state.isBlank ? 'blank' : ''}`} type="password" placeholder="Password"></input>
+                          <button onClick={this.signIn} className="loginPage_loginBtn" >
+                            {
+                              this.state.loading ? 
+                                <CircularProgress color="inherit"/>
+                                :
+                                "Login"
+                            }
+                          </button>
                         </div> 
                         : 
                         <div>
-                          <input onChange={(event) => {this.state.signUp_name = event.currentTarget.value}} className="loginPage_textBoxFirst" type="text" placeholder="Name"></input>
-                          <input onChange={(event) => {this.state.signUp_email = event.currentTarget.value}} className="loginPage_textBox" type="text" placeholder="Email address"></input>
-                          <input onChange={(event) => {this.state.signUp_password = event.currentTarget.value}} className="loginPage_textBox" type="password" placeholder="Password"></input>
-                          <button onClick={this.signUp} className="loginPage_loginBtn" > Sign Up</button>
+                          <input id="name" onChange={(event) => {this.state.signUp_name = event.currentTarget.value}} className={`loginPage_textBox ${this.state.isBlank ? 'blank' : ''}`} type="text" placeholder="Name"></input>
+                          <input id="email" onChange={(event) => {this.state.signUp_email = event.currentTarget.value}} className={`loginPage_textBox ${this.state.isBlank ? 'blank' : ''}`} type="text" placeholder="Email address"></input>
+                          <input id="password" onChange={(event) => {this.state.signUp_password = event.currentTarget.value}} className={`loginPage_textBox ${this.state.isBlank ? 'blank' : ''}`}type="password" placeholder="Password"></input>
+                          <button onClick={this.signUp} className="loginPage_loginBtn" >
+                            {
+                              this.state.loading ? 
+                                <CircularProgress color="inherit"/>
+                                :
+                                "Sign Up"
+                            }
+                          </button>
                         </div>
                       }
                   
                       <div className="loginPage_signUpOption">
                         {
-                          this.state.isLogin ? <div className="loginPage_signIn">
-                          <div className= "loginPage_forgotPassword">
-                            Forgotten Password?
-                          </div>
-                            <button className="loginPage_createAccountBtn" onClick={this.changeLogIn} > Create new account</button>
-                          </div>
-                          :
-                          <div className="loginPage_signUp">
-                            <div className= "loginPage_alreadyHaveAccount" onClick={this.changeLogIn} >
-                              Already have an account?
+                          this.state.isLogin ?
+                            <div className="loginPage_signIn">
+                              <div className= "loginPage_forgotPassword_container">
+                                <div className="loginPage_forgotPassword_btn">
+                                  Forgotten Password?
+                                </div>
+                              </div>
+                                <button className="loginPage_createAccountBtn" onClick={this.changeLogIn} >
+                                  Create new account
+                                </button>
                             </div>
-                          </div>
+                          :
+                            <div className="loginPage_signUp">
+                              <div className= "loginPage_alreadyHaveAccount_container" onClick={this.changeLogIn} >
+                                <div className="loginPage_alreadyHaveAccount_btn">
+                                  Already have an account?
+                                </div>
+                              </div>
+                            </div>
                         }
                       </div>
                     </div>

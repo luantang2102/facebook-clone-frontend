@@ -37,8 +37,11 @@ class PersonalPage extends Component {
     isRequest: false,
     isRespond : false,
 
-    anchorEl : null,
-    openPopUp : false
+    anchorEl_respond : null,
+    openPopUp_respond : false,
+
+    anchorEl_friend : null,
+    openPopUp_friend : false,
   }
 
   handleTabClick = (tabName) => {
@@ -77,8 +80,8 @@ class PersonalPage extends Component {
     const thisContext = this; 
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
-    
-    fetch(`http://localhost:8080/api/v1/user/current/friend/${this.props.userId}/isFriend`, {
+
+    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/current/friend/${this.props.userId}/isFriend`, {
       method: 'GET',
       headers: {
         'Authorization': auth,
@@ -105,7 +108,7 @@ class PersonalPage extends Component {
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
     
-    fetch(`http://localhost:8080/api/v1/user/current/friend/pending/${this.props.userId}/isOnPending`, {
+    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/current/friend/pending/${this.props.userId}/isOnPending`, {
       method: 'GET',
       headers: {
         'Authorization': auth,
@@ -132,7 +135,7 @@ class PersonalPage extends Component {
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
     
-    fetch(`http://localhost:8080/api/v1/user/${this.props.userId}/friend/pending/isOnPending`, {
+    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/${this.props.userId}/friend/pending/isOnPending`, {
       method: 'GET',
       headers: {
         'Authorization': auth,
@@ -159,7 +162,7 @@ class PersonalPage extends Component {
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
     
-    fetch(`http://localhost:8080/api/v1/user/${this.props.userId}/friend/pending/add`, {
+    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/${this.props.userId}/friend/pending/add`, {
       method: 'PUT',
       headers: {
         'Authorization': auth,
@@ -186,7 +189,7 @@ class PersonalPage extends Component {
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
     
-    fetch(`http://localhost:8080/api/v1/user/${this.props.userId}/friend/pending/remove`, {
+    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/${this.props.userId}/friend/pending/remove`, {
       method: 'PUT',
       headers: {
         'Authorization': auth,
@@ -212,20 +215,17 @@ class PersonalPage extends Component {
   handleRespond = (event) => {
     this.setState(
       {
-        anchorEl: event.currentTarget,
-        openPopUp: true
+        anchorEl_respond: event.currentTarget,
+        openPopUp_respond: true
       },
-      () => {
-        console.log(this.state.anchorEl);
-      }
     );
   }
 
-  handlePopUpClose = () => {
+  handlePopUpRespondClose = () => {
     this.setState(
       {
-        anchorEl : null,
-        openPopUp : false
+        anchorEl_respond : null,
+        openPopUp_respond : false
       }
     );
   }
@@ -235,7 +235,7 @@ class PersonalPage extends Component {
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
     
-    fetch(`http://localhost:8080/api/v1/user/current/friend/add/${this.props.userId}`, {
+    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/current/friend/add/${this.props.userId}`, {
       method: 'PUT',
       headers: {
         'Authorization': auth,
@@ -249,8 +249,8 @@ class PersonalPage extends Component {
           isFriend : true,
           isRespond : false,
           isRequest : false,
-          anchorEl : null,
-          openPopUp : false
+          anchorEl_respond : null,
+          openPopUp_respond: false
         });                   
     })
     .catch(error => {
@@ -264,7 +264,7 @@ class PersonalPage extends Component {
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
     
-    fetch(`http://localhost:8080/api/v1/user/current/friend/pending/remove/${this.props.userId}`, {
+    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/current/friend/pending/remove/${this.props.userId}`, {
       method: 'PUT',
       headers: {
         'Authorization': auth,
@@ -278,8 +278,55 @@ class PersonalPage extends Component {
           isFriend : false,
           isRespond : false,
           isRequest : false,
-          anchorEl : null,
-          openPopUp : false
+          anchorEl_respond : null,
+          openPopUp_respond : false
+        });                   
+    })
+    .catch(error => {
+      console.log(error);
+    });
+    // ...
+  }
+
+  handleFriend = (event) => {
+    this.setState(
+      {
+        anchorEl_friend: event.currentTarget,
+        openPopUp_friend: true
+      }
+    );
+  }
+
+  handlePopUpFriendClose = () => {
+    this.setState(
+      {
+        anchorEl_friend : null,
+        openPopUp_friend : false
+      }
+    );
+  }
+
+  handleUnfriend = () => {
+    const thisContext = this; 
+    let token = localStorage.getItem("token").replace(/^"|"$/g, '');
+    let auth = "Bearer " + token;
+    
+    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/current/friend/remove/${this.props.userId}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': auth,
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      thisContext.setState(
+        {
+          isFriend : false,
+          isRespond : false,
+          isRequest : false,
+          anchorEl_friend : null,
+          openPopUp_friend : false
         });                   
     })
     .catch(error => {
@@ -349,7 +396,7 @@ class PersonalPage extends Component {
             }
           }
 
-          fetch(`http://localhost:8080/api/v1/user/current/update`, {
+          fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/current/update`, {
             method: 'PUT',
             headers: {
               'Authorization': auth,
@@ -495,10 +542,13 @@ class PersonalPage extends Component {
                       :
                       this.state.isFriend ? 
                         <div className="pp_buttonContainer">
-                          <label for="add_friend" className="pp_secButton">
+                          <label id="friend_button" for="add_friend" className="pp_secButton" aria-controls={this.state.openPopUp_friend ? 'friend_menu' : undefined} aria-haspopup="true" aria-expanded={this.state.openPopUp_friend ? 'true' : undefined} onClick={this.handleFriend}>
                             <img src={checkedFriend} className="pp_button_image"/>
                             <div className="pp_secButton_text">Friends</div>
                           </label>
+                          <Menu id="friend_menu" anchorEl={this.state.anchorEl_friend} open={this.state.openPopUp_friend} onClose={this.handlePopUpFriendClose} MenuListProps={{'aria-labelledby': 'friend_button',}}>
+                            <MenuItem onClick={this.handleUnfriend}>Unfriend</MenuItem> 
+                          </Menu>
                           <input type="button" id="add_friend"/>
                           <label for="message" className="pp_firstButton">
                             <img src={message_white} className="pp_button_image"/>
@@ -531,11 +581,11 @@ class PersonalPage extends Component {
                           :
                           this.state.isRespond ? 
                             <div className="pp_buttonContainer">
-                              <label id="respond_button" for="add_friend" className="pp_firstButton" aria-controls={this.state.openPopUp ? 'respond_menu' : undefined} aria-haspopup="true" aria-expanded={this.state.openPopUp ? 'true' : undefined} onClick={this.handleRespond}>
+                              <label id="respond_button" for="add_friend" className="pp_firstButton" aria-controls={this.state.openPopUp_respond ? 'respond_menu' : undefined} aria-haspopup="true" aria-expanded={this.state.openPopUp_respond ? 'true' : undefined} onClick={this.handleRespond}>
                                 <img src={checkedFriend_white} className="pp_button_image"/>
                                 <div className="pp_firstButton_text">Respond</div>
                               </label>
-                              <Menu id="respond_menu" anchorEl={this.state.anchorEl} open={this.state.openPopUp} onClose={this.handlePopUpClose} MenuListProps={{'aria-labelledby': 'respond_button',}}>
+                              <Menu id="respond_menu" anchorEl={this.state.anchorEl_respond} open={this.state.openPopUp_respond} onClose={this.handlePopUpRespondClose} MenuListProps={{'aria-labelledby': 'respond_button',}}>
                                 <MenuItem onClick={this.handleConfirmRequest}>Confirm</MenuItem>
                                 <MenuItem onClick={this.handleDeleteRequest}>Delete request</MenuItem> 
                               </Menu>

@@ -1,5 +1,6 @@
 .rightSide_container {
-
+  display: grid;
+  justify-content: end;
 }
 
 .rightSide_header {

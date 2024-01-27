@@ -1,6 +1,6 @@
 import React, { Component, createRef } from 'react';
 import './MainPage.css';
-import { Grid } from '@mui/material';
+import { Grid, Menu } from '@mui/material';
 import LeftSide from './LeftSidePanel/LeftSide';
 import StatusBar from './StatusBar/StatusBar';
 import UploadSection from './UploadSection/UploadSection';
@@ -13,7 +13,6 @@ class Layout extends Component {
     this.childRef = createRef();
   }
   state = { 
-
   }
 
   postUpdate = () => {
@@ -21,18 +20,13 @@ class Layout extends Component {
       this.childRef.current.getData();
     }
   }
-
-  handleOpenCurrentUserPersonalPage = () => {
-    this.props.openPersonalPage(this.props.userId);
-  }
-
   render() { 
     return (
       <div className="mainPage_container">
         <Grid container >
-        <Grid item xs = {3}>
+          <Grid item xs = {3}>
             <div>
-              <LeftSide openPersonalPage={this.handleOpenCurrentUserPersonalPage} userId={this.props.userId} userName={this.props.userName} userImage={this.props.userImage}/>
+              <LeftSide openPersonalPage={this.props.openPersonalPage} userId={this.props.userId} userName={this.props.userName} userImage={this.props.userImage}/>
             </div>
           </Grid>
           <Grid item xs = {6} >
@@ -44,7 +38,7 @@ class Layout extends Component {
           </Grid>
           <Grid item xs = {3}>
             <div>
-              <RightSide />
+              <RightSide openPersonalPage={this.props.openPersonalPage}/>
             </div>
           </Grid>
         </Grid>

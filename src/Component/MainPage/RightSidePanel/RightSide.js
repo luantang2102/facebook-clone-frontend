@@ -11,32 +11,41 @@ class RightSide extends Component {
   }
 
   getData = () => {
-    let jsData = [
-
-      {
-        "image" : "",
-        "text" : "Luân Tăng"
-      },
-      {
-        "image" : "",
-        "text" : "Luân Tăng"
-      },
-      {
-        "image" : "",
-        "text" : "Luân Tăng"
-      },
-      {
-        "image" : "",
-        "text" : "Luân Tăng"
+    const thisContext = this;
+    let token = localStorage.getItem("token").replace(/^"|"$/g, '');
+    let auth = "Bearer " + token;
+    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/current/friends`, {
+      method: 'GET',
+      headers: {
+        'Authorization': auth,
+        'Content-Type': 'application/json'
       }
-    ]
-    this.setState({data: jsData});
+    })
+    .then(response => {
+      if (!response.ok) {
+        if (response.status === 401) {
+          // Handle unauthorized access here
+          console.log("Unauthorized access!");
+        } else {
+          throw new Error('Network response was not ok.');
+        }
+      }
+      return response.json();
+    })
+    .then(data => {
+      this.setState({
+        data: data
+      });
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
 
   componentDidMount() {
     this.getData();
   }
-
+  
   render() { 
     return (
       <div className="rightSide_container">
@@ -47,7 +56,7 @@ class RightSide extends Component {
           <div>
           {
           this.state.data.map((item) => (
-            <ImageLayout text={item.text} image={item.image}/>
+            <ImageLayout text={item.userName} image={item.userImage} openPersonalPage={this.props.openPersonalPage} userId={item.userId}/>
           ))
         }
           </div>

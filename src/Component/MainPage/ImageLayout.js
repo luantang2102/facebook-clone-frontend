@@ -6,9 +6,14 @@ class ImageLayout extends Component {
     super(props);
   }
   state = {}
+
+  handleOpenPersonalPage = () => {
+    this.props.openPersonalPage(this.props.userId);
+  }
+
   render() { 
     return ( 
-      <div className="imageLayout_container" onClick={this.props.openPersonalPage}>
+      <div className="imageLayout_container" onClick={this.handleOpenPersonalPage}>
         <div className="imageLayout_imgLay">
           <Avatar className="imageLayout_img" src= {this.props.image} />
         </div>

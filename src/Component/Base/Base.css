@@ -2,6 +2,20 @@
 
 }
 
+.base {
+  overflow: hidden;
+}
+
+.bottom_container {
+  display: grid;
+  justify-content: end;
+  padding-right: 5px;
+}
+ 
+.bottom_tab {
+  
+}
+
 .title {
   width: 350px;
   margin-top: 20px;
@@ -35,4 +49,107 @@
   display: flex;
   margin-top: 15px;
   margin-bottom: 5px;
+}
+
+.chatBox_container {
+  display: grid;
+  align-items: center;
+  margin: 5px;
+  width: 300px;
+  height: 400px;
+}
+
+.chatBox_header_container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border-bottom: #E5E5E5 solid 1px;
+  height: 50px;
+  
+}
+
+.chatBox_header_name {
+  font-size: 17px;
+  font-weight: 500;
+  margin-left: 8px;
+}
+
+.chatBox_chat_container {
+  height: 300px;
+  display: flex;
+  flex-direction: column-reverse;
+  overflow-y: auto; 
+}
+
+.chatBox_chat_currentChat {
+  height: fit-content;
+  display: flex;
+  justify-content: flex-end;
+  margin: 2px 0px 2px 0px;
+}
+
+.chatBox_chat_currentChat_text_container {
+  border-radius: 15px 15px 0px 15px;
+  background-color: #317BDD;
+}
+
+.chatBox_chat_currentChat_text {
+  margin: 8px;
+  color: white;
+}
+
+.chatBox_chat_friendChat {
+  height: fit-content;
+  display: flex;
+  justify-content: flex-start;
+  margin: 2px 0px 2px 0px;
+}
+
+.chatBox_chat_friendChat_text_container {
+  border-radius: 0px 15px 15px 15px;
+  background-color: #E5E5E5;
+}
+
+.chatBox_chat_friendChat_text {
+  margin: 8px;
+  color: black;
+}
+
+.chatBox_insert_container {
+  border-top: #E5E5E5 1px solid;
+  
+}
+
+.chatBox_exit {
+  display: flex;
+  height: 0px;
+  justify-content: flex-end;
+  transform: translate(0px, 15px);
+}
+
+.chatBox_exitButton {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.chatBox_exitButton:hover {
+  cursor: pointer;
+  background-color: #E5E5E5;
+  
+}
+
+.chatBox_insert_text {
+  height: 30px;
+  width: 270px;
+  border-radius: 25px;
+  border: 0px;
+  background-color: #EFF2F5;
+  font-size: 16px;
+  padding-left: 30px;
+  margin-top: 8px;
+  margin-bottom: 10px;
 }

@@ -34,7 +34,7 @@ class UploadSection extends Component {
         "postImgURL" : null
       }
 
-      fetch('http://localhost:8080/api/v1/user/post/create', {
+      fetch('https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/post/create', {
         method: 'POST',
         headers: {
           'Authorization': auth,
@@ -105,7 +105,7 @@ class UploadSection extends Component {
           }
           
 
-          fetch('http://localhost:8080/api/v1/user/post/create', {
+          fetch('https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/post/create', {
             method: 'POST',
             headers: {
               'Authorization': auth,

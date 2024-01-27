@@ -2,7 +2,8 @@
   display: grid;
   place-items: center;
   background-color: #F0F2F5;
-
+  overflow-y: scroll;
+  height: 650px;
 }
 
 .top_container {
@@ -200,6 +201,12 @@
   display: grid;
   margin-right: 15px;
   margin-bottom: 15px;
+  overflow-y: scroll;
+  height: 650px;
+}
+
+.bottom_posts_right_container::-webkit-scrollbar {
+  display: none;
 }
 
 .friends_container {
