@@ -80,7 +80,7 @@ class PersonalPage extends Component {
     const thisContext = this; 
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
-    
+
     fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/current/friend/${this.props.userId}/isFriend`, {
       method: 'GET',
       headers: {

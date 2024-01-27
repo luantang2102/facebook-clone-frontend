@@ -20,7 +20,6 @@ class Layout extends Component {
       this.childRef.current.getData();
     }
   }
-  
   render() { 
     return (
       <div className="mainPage_container">
