@@ -8,6 +8,7 @@ Developed the frontend of a social media platform inspired by Facebook, focusing
 - **Navigation Bar**
 - **Main Page:**
 - **Personal Page**
+- **Messenger**
 
 ## Technologies Used
 - JavaScript
