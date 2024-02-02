@@ -7,8 +7,6 @@ Developed the frontend of a social media platform inspired by Facebook, focusing
 - **User Authentication**
 - **Navigation Bar**
 - **Main Page:**
-  - Display and upload posts
-  - Display and upload statuses
 - **Personal Page**
 
 ## Technologies Used
