@@ -53,7 +53,7 @@ class Base extends Component {
     const thisContext = this;
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
-    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/${userId}`, {
+    fetch(`https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/${userId}`, {
       method: 'GET',
       headers: {
         'Authorization': auth,
@@ -121,7 +121,7 @@ class Base extends Component {
       const thisContext = this;
       let token = localStorage.getItem("token").replace(/^"|"$/g, '');
       let auth = "Bearer " + token;
-      fetch('https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/current', {
+      fetch('https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/current', {
         method: 'GET',
         headers: {
           'Authorization': auth,
@@ -174,7 +174,7 @@ class Base extends Component {
     const thisContext = this;
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
-    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/${userId}`, {
+    fetch(`https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/${userId}`, {
       method: 'GET',
       headers: {
         'Authorization': auth,
@@ -222,7 +222,7 @@ class Base extends Component {
     const thisContext = this;
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
-    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/current/messages/${this.state.targetUserId}`, {
+    fetch(`https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/current/messages/${this.state.targetUserId}`, {
       method: 'GET',
       headers: {
         'Authorization': auth,
@@ -270,7 +270,7 @@ class Base extends Component {
       "content" : this.state.message
     };
     
-    fetch('https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/chat', {
+    fetch('https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/chat', {
       method: 'POST',
       headers: {
         'Authorization': auth,

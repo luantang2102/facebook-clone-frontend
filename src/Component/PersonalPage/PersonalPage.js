@@ -81,7 +81,7 @@ class PersonalPage extends Component {
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
 
-    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/current/friend/${this.props.userId}/isFriend`, {
+    fetch(`https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/current/friend/${this.props.userId}/isFriend`, {
       method: 'GET',
       headers: {
         'Authorization': auth,
@@ -108,7 +108,7 @@ class PersonalPage extends Component {
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
     
-    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/current/friend/pending/${this.props.userId}/isOnPending`, {
+    fetch(`https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/current/friend/pending/${this.props.userId}/isOnPending`, {
       method: 'GET',
       headers: {
         'Authorization': auth,
@@ -135,7 +135,7 @@ class PersonalPage extends Component {
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
     
-    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/${this.props.userId}/friend/pending/isOnPending`, {
+    fetch(`https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/${this.props.userId}/friend/pending/isOnPending`, {
       method: 'GET',
       headers: {
         'Authorization': auth,
@@ -162,7 +162,7 @@ class PersonalPage extends Component {
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
     
-    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/${this.props.userId}/friend/pending/add`, {
+    fetch(`https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/${this.props.userId}/friend/pending/add`, {
       method: 'PUT',
       headers: {
         'Authorization': auth,
@@ -189,7 +189,7 @@ class PersonalPage extends Component {
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
     
-    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/${this.props.userId}/friend/pending/remove`, {
+    fetch(`https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/${this.props.userId}/friend/pending/remove`, {
       method: 'PUT',
       headers: {
         'Authorization': auth,
@@ -235,7 +235,7 @@ class PersonalPage extends Component {
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
     
-    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/current/friend/add/${this.props.userId}`, {
+    fetch(`https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/current/friend/add/${this.props.userId}`, {
       method: 'PUT',
       headers: {
         'Authorization': auth,
@@ -264,7 +264,7 @@ class PersonalPage extends Component {
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
     
-    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/current/friend/pending/remove/${this.props.userId}`, {
+    fetch(`https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/current/friend/pending/remove/${this.props.userId}`, {
       method: 'PUT',
       headers: {
         'Authorization': auth,
@@ -311,7 +311,7 @@ class PersonalPage extends Component {
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
     
-    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/current/friend/remove/${this.props.userId}`, {
+    fetch(`https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/current/friend/remove/${this.props.userId}`, {
       method: 'PUT',
       headers: {
         'Authorization': auth,
@@ -396,7 +396,7 @@ class PersonalPage extends Component {
             }
           }
 
-          fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/current/update`, {
+          fetch(`https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/current/update`, {
             method: 'PUT',
             headers: {
               'Authorization': auth,

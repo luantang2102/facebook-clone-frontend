@@ -52,42 +52,32 @@ class LoginPage extends Component {
         },
         () => {
           const thisContext = this;
-          e.preventDefault();
-          createUserWithEmailAndPassword(auth, this.state.signUp_email, this.state.signUp_password)
-            .then((userCredential) => {
-              // Signed up 
-              const user = userCredential.user;
-
-              let payload = {
-                "userId" : user.uid,
-                "userName" : this.state.signUp_name,
-                "email" : this.state.signUp_email,
-                "password" : this.state.signUp_password,
-                "userImage" : "dummyImage"
-              }
-              
-              fetch('https://facebook-clone-backend-production-f262.up.railway.app/api/v1/auth/register', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(payload),
-              })
-              .then(data => {
-                this.changeLogIn();
-                window.location.reload();
-              })
-              .catch(error => {
-                console.log(error);
-                console.log("Error from server-side");
-              });
+          let payload = {
+            "userName" : this.state.signUp_name,
+            "email" : this.state.signUp_email,
+            "password" : this.state.signUp_password,
+            "userImage" : "dummyImage"
+          }
+          
+          fetch('https://facebook-clone-backend-production-693b.up.railway.app/api/v1/auth/register', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+          })
+          .then(data => {
+            this.changeLogIn();
+            window.location.reload();
+          })
+          .catch(error => {
+            console.log(error);
+            console.log("Error from server-side");
+            this.setState({
+              loading: false,
+              isBlank : true
             })
-            .catch((error) => {
-              console.log("Error from firebase");
-              const errorCode = error.code;
-              const errorMessage = error.message;
-              console.log(error);
-            });
+          });
         })
     }
     else {
@@ -105,41 +95,32 @@ class LoginPage extends Component {
         },
         () => {
           const thisContext = this;
-          e.preventDefault();
-          signInWithEmailAndPassword(auth, this.state.signIn_email, this.state.signIn_password)
-            .then((userCredential) => {
-              // Signed in
-              let payload = {
-                "email" : this.state.signIn_email,
-                "password" : this.state.signIn_password
-              }
-  
-              fetch('https://facebook-clone-backend-production-f262.up.railway.app/api/v1/auth/login', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(payload),
-              })
-              .then(response => response.json())
-              .then(data => {
-                console.log(data.accessToken);
-                localStorage.setItem("token", JSON.stringify(data.accessToken));
-                thisContext.props.updateCurrentUser(data.currentUser);
-                window.location.reload();
-              })
-              .catch(error => {
-                this.setState({
-                  loading: false
-                })
-              });
-              // ...
+          let payload = {
+            "email" : this.state.signIn_email,
+            "password" : this.state.signIn_password
+          }
+
+          fetch('https://facebook-clone-backend-production-693b.up.railway.app/api/v1/auth/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+          })
+          .then(response => response.json())
+          .then(data => {
+            console.log(data.accessToken);
+            localStorage.setItem("token", JSON.stringify(data.accessToken));
+            thisContext.props.updateCurrentUser(data.currentUser);
+            window.location.reload();
+          })
+          .catch(error => {
+            this.setState({
+              loading: false,
+              isBlank : true
             })
-            .catch((error) => {
-              this.setState({
-                loading: false
-              })
-            });
+          });
+          
         })
     }
     else {
@@ -171,8 +152,8 @@ class LoginPage extends Component {
                       {
                         this.state.isLogin ? 
                         <div className="loginPage_signIn">
-                          <input id="email" onChange={(event) => {this.state.signIn_email = event.currentTarget.value}} className={`loginPage_textBox ${this.state.isBlank ? 'blank' : ''}`} type="text" placeholder="Email address"></input>
-                          <input id="password" onChange={(event) =>{this.state.signIn_password = event.currentTarget.value}} className={`loginPage_textBox ${this.state.isBlank ? 'blank' : ''}`} type="password" placeholder="Password"></input>
+                          <input id="email" name='email' autoComplete='new-password' onChange={(event) => {this.state.signIn_email = event.currentTarget.value}} className={`loginPage_textBox ${this.state.isBlank ? 'blank' : ''}`} type="text" placeholder="Email address"></input>
+                          <input id="password" autoComplete='new-password' name="password" onChange={(event) =>{this.state.signIn_password = event.currentTarget.value}} className={`loginPage_textBox ${this.state.isBlank ? 'blank' : ''}`} type="password" placeholder="Password"></input>
                           <button onClick={this.signIn} className="loginPage_loginBtn" >
                             {
                               this.state.loading ? 
@@ -184,9 +165,9 @@ class LoginPage extends Component {
                         </div> 
                         : 
                         <div>
-                          <input id="name" onChange={(event) => {this.state.signUp_name = event.currentTarget.value}} className={`loginPage_textBox ${this.state.isBlank ? 'blank' : ''}`} type="text" placeholder="Name"></input>
-                          <input id="email" onChange={(event) => {this.state.signUp_email = event.currentTarget.value}} className={`loginPage_textBox ${this.state.isBlank ? 'blank' : ''}`} type="text" placeholder="Email address"></input>
-                          <input id="password" onChange={(event) => {this.state.signUp_password = event.currentTarget.value}} className={`loginPage_textBox ${this.state.isBlank ? 'blank' : ''}`}type="password" placeholder="Password"></input>
+                          <input id="name" name='name' autoComplete='new-password' onChange={(event) => {this.state.signUp_name = event.currentTarget.value}} className={`loginPage_textBox ${this.state.isBlank ? 'blank' : ''}`} type="text" placeholder="Name"></input>
+                          <input id="email" name='email' autoComplete='new-password' onChange={(event) => {this.state.signUp_email = event.currentTarget.value}} className={`loginPage_textBox ${this.state.isBlank ? 'blank' : ''}`} type="text" placeholder="Email address"></input>
+                          <input id="password" name='password' autoComplete='new-password' onChange={(event) => {this.state.signUp_password = event.currentTarget.value}} className={`loginPage_textBox ${this.state.isBlank ? 'blank' : ''}`}type="password" placeholder="Password"></input>
                           <button onClick={this.signUp} className="loginPage_loginBtn" >
                             {
                               this.state.loading ? 

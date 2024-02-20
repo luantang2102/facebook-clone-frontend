@@ -26,7 +26,7 @@ class Post extends Component {
     const thisContext = this;
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
-    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/comments/${this.props.object.postId}`, {
+    fetch(`https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/comments/${this.props.object.postId}`, {
       method: 'GET',
       headers: {
         'Authorization': auth,
@@ -58,7 +58,7 @@ class Post extends Component {
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
 
-    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/post/${thisContext.props.object.postId}/likes/isLiked`, {
+    fetch(`https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/post/${thisContext.props.object.postId}/likes/isLiked`, {
           method: 'GET',
           headers: {
             'Authorization': auth,
@@ -92,7 +92,7 @@ class Post extends Component {
           "comment" : thisContext.state.newComment
         }
 
-        fetch('https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/comment/create', {
+        fetch('https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/comment/create', {
           method: 'POST',
           headers: {
             'Authorization': auth,
@@ -120,7 +120,7 @@ class Post extends Component {
       let token = localStorage.getItem("token").replace(/^"|"$/g, '');
       let auth = "Bearer " + token;
 
-      fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/post/${this.props.object.postId}/update/likes/remove`, {
+      fetch(`https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/post/${this.props.object.postId}/update/likes/remove`, {
         method: 'PUT',
         headers: {
           'Authorization': auth,
@@ -140,7 +140,7 @@ class Post extends Component {
       let token = localStorage.getItem("token").replace(/^"|"$/g, '');
       let auth = "Bearer " + token;
 
-      fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/post/${this.props.object.postId}/update/likes/add`, {
+      fetch(`https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/post/${this.props.object.postId}/update/likes/add`, {
         method: 'PUT',
         headers: {
           'Authorization': auth,

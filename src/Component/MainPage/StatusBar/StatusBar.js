@@ -69,7 +69,7 @@ class StatusBar extends Component {
           }
           
 
-          fetch('https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/status/create', {
+          fetch('https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/status/create', {
             method: 'POST',
             headers: {
               'Authorization': auth,
@@ -100,7 +100,7 @@ class StatusBar extends Component {
     const thisContext = this;
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
-    fetch('https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/statuses', {
+    fetch('https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/statuses', {
       method: 'GET',
       headers: {
         'Authorization': auth,

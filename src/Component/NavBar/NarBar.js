@@ -51,7 +51,7 @@ class NavBar extends Component {
   }
 
   connect = () => {
-    var socket = new SockJS('https://facebook-clone-backend-production-f262.up.railway.app/ws');
+    var socket = new SockJS('https://facebook-clone-backend-production-693b.up.railway.app/ws');
 
     this.stompClient = over(socket);
     this.stompClient.connect({}, this.onConnected, this.onError)
@@ -63,7 +63,7 @@ class NavBar extends Component {
 
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
-    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/current/connect`, {
+    fetch(`https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/current/connect`, {
       method: 'POST',
       headers: {
         'Authorization': auth,
@@ -107,7 +107,7 @@ class NavBar extends Component {
     const thisContext = this;
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
-    fetch(`https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/current/friends`, {
+    fetch(`https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/current/friends`, {
       method: 'GET',
       headers: {
         'Authorization': auth,

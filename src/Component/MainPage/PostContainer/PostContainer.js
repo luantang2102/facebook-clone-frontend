@@ -15,7 +15,7 @@ class PostContainer extends Component {
     const thisContext = this;
     let token = localStorage.getItem("token").replace(/^"|"$/g, '');
     let auth = "Bearer " + token;
-    fetch('https://facebook-clone-backend-production-f262.up.railway.app/api/v1/user/posts', {
+    fetch('https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/posts', {
       method: 'GET',
       headers: {
         'Authorization': auth,
@@ -47,7 +47,7 @@ class PostContainer extends Component {
    const thisContext = this;
    let token = localStorage.getItem("token").replace(/^"|"$/g, '');
    let auth = "Bearer " + token;
-   fetch(`https://localhost:8080/api/v1/user/${this.props.userId}/posts`, {
+   fetch(`https://facebook-clone-backend-production-693b.up.railway.app/api/v1/user/${this.props.userId}/posts`, {
      method: 'GET',
      headers: {
        'Authorization': auth,
