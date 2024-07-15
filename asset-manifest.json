@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/facebook-clone-frontend/static/css/main.b28c283f.css",
+    "main.js": "/facebook-clone-frontend/static/js/main.c588ac1e.js",
+    "static/js/787.1ff36217.chunk.js": "/facebook-clone-frontend/static/js/787.1ff36217.chunk.js",
+    "static/media/logo.png": "/facebook-clone-frontend/static/media/logo.4b3134793a4b2444a62a.png",
+    "static/media/market.svg": "/facebook-clone-frontend/static/media/market.1befaa8999f8b91e1fe665334833dc1b.svg",
+    "static/media/groups.svg": "/facebook-clone-frontend/static/media/groups.4226ca965efb29c021d68653e88784da.svg",
+    "static/media/thumbs-up.svg": "/facebook-clone-frontend/static/media/thumbs-up.6c1834453fdd0694a20ef35b508ef0bf.svg",
+    "static/media/home.svg": "/facebook-clone-frontend/static/media/home.70eb49d5008df8975f3907db75e9f981.svg",
+    "static/media/comment.svg": "/facebook-clone-frontend/static/media/comment.6ca7f883c2a36c743cc0198bb169602a.svg",
+    "static/media/pencil-solid.svg": "/facebook-clone-frontend/static/media/pencil-solid.f3b2112be40368095f6c3ff8a837c7d6.svg",
+    "static/media/thumbs-up-solid.svg": "/facebook-clone-frontend/static/media/thumbs-up-solid.e81993f598827bdc04047e95d3e6d74b.svg",
+    "static/media/watch.svg": "/facebook-clone-frontend/static/media/watch.bde61721e2f09c41a424746ea29e2a1b.svg",
+    "index.html": "/facebook-clone-frontend/index.html",
+    "static/media/facebook-messenger-black.svg": "/facebook-clone-frontend/static/media/facebook-messenger-black.3e471835144fd0bcb83091cd761810ef.svg",
+    "static/media/facebook-messenger-white.svg": "/facebook-clone-frontend/static/media/facebook-messenger-white.1e9764427778a21a1674bdc4dc0ed875.svg",
+    "static/media/user-xmark-solid.svg": "/facebook-clone-frontend/static/media/user-xmark-solid.693873ff945a25a000726daf903cbd8a.svg",
+    "static/media/facebook-messenger.svg": "/facebook-clone-frontend/static/media/facebook-messenger.768cac4088228c5f376aa14eb284a660.svg",
+    "static/media/share-solid.svg": "/facebook-clone-frontend/static/media/share-solid.fb343d5f0f689b50601065392ad22833.svg",
+    "static/media/user-plus-solid.svg": "/facebook-clone-frontend/static/media/user-plus-solid.57830ebe18a29d25a37789f55acf8383.svg",
+    "static/media/user-check-solid-white.svg": "/facebook-clone-frontend/static/media/user-check-solid-white.0b61100e67deaaac618c55109cb82625.svg",
+    "static/media/user-check-solid.svg": "/facebook-clone-frontend/static/media/user-check-solid.a05d151228076ca4510910490663c1a9.svg",
+    "static/media/pages.svg": "/facebook-clone-frontend/static/media/pages.3dda8ab4abf9d569ce74f1b2c7e4c850.svg",
+    "static/media/x-solid.svg": "/facebook-clone-frontend/static/media/x-solid.8a142d2dd61d76fd32684bdaee93340f.svg",
+    "static/media/plus-solid.svg": "/facebook-clone-frontend/static/media/plus-solid.8238de510747a915323dc85137bc5740.svg",
+    "static/media/chevron-down-solid.svg": "/facebook-clone-frontend/static/media/chevron-down-solid.408b325a1dbd7a6593efb45e2ac78659.svg",
+    "static/media/caret-down-solid.svg": "/facebook-clone-frontend/static/media/caret-down-solid.acb8750e70191b2e97cc055e17f674e0.svg",
+    "main.b28c283f.css.map": "/facebook-clone-frontend/static/css/main.b28c283f.css.map",
+    "main.c588ac1e.js.map": "/facebook-clone-frontend/static/js/main.c588ac1e.js.map",
+    "787.1ff36217.chunk.js.map": "/facebook-clone-frontend/static/js/787.1ff36217.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b28c283f.css",
+    "static/js/main.c588ac1e.js"
+  ]
+}
