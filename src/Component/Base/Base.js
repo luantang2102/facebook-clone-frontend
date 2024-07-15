@@ -117,6 +117,7 @@ class Base extends Component {
   }
 
   componentDidMount() {
+    document.title="Facebook Clone"
     if(localStorage.getItem("token")!=undefined) {
       const thisContext = this;
       let token = localStorage.getItem("token").replace(/^"|"$/g, '');
